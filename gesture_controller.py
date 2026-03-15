@@ -19,7 +19,7 @@ class GestureController:
         self.last_gesture = gesture
         self.last_time = now
 
-        if gesture == "PINCH":
+        if gesture == "ROCK":
             self.show_desktop()
 
         elif gesture == "GUN":
@@ -34,6 +34,10 @@ class GestureController:
         elif gesture == "FIST":
             self.exit_program()
 
+        elif gesture == "MIDDLE_FINGER":
+            self.open_task_manager()
+        elif gesture == "HANG_LOOSE":
+            self.mute()
         return None
 
     def open_steam(self):
@@ -51,3 +55,9 @@ class GestureController:
     def exit_program(self):
         print("Saindo do programa...")
         pyautogui.press("esc")
+
+    def open_task_manager(self):
+        pyautogui.hotkey("ctrl", "shift", "esc")
+
+    def mute(self):
+        pyautogui.press("volumemute")
